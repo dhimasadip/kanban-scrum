@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Name can\'t be empty'
         },
         len: {
-          args: [8,30],
-          msg: ' Name must be 8-30 characters'
+          args: [2,30],
+          msg: 'Name must be 2-30 characters'
         }
       }
     },
@@ -26,11 +26,11 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: false,
-          msg: ' Password can\'t be empty'
+          msg: 'Email can\'t be empty'
         },
         isEmail: {
           args: false,
-          msg: ' Wrong email format'
+          msg: 'Wrong email format'
         }
       }
     },
@@ -39,11 +39,11 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         notEmpty: {
           args: false,
-          msg: ' Password can\'t be empty'
+          msg: 'Password can\'t be empty'
         },
         len: {
           args: [8,20],
-          msg: ' Password must be 8-20 characters'
+          msg: 'Password must be 8-20 characters'
         }
       }
     },

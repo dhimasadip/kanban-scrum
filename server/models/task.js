@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
   const y = new Date().getFullYear()
   const now = `${m}/${d}/${y}`
 
-
   Task.init({
     title: {
       type: DataTypes.STRING,
@@ -24,10 +23,14 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     due_date: {
       type: DataTypes.DATE,
-      validation: {
+      validate: {
+        isDate: {
+          args: false,
+          msg: `Please input due date`
+        },
         isAfter: {
-          args: new Date(now).toDateString().split('T')[0],
-          msg: ' Due date must be today or after'
+          args: new Date(now).toISOString().split('T')[0],
+          msg: `Due date must be today or after`
         }
       }
     },
