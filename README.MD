@@ -1,5 +1,5 @@
 # Kanban App
-My Kanban App is an application to create a visual system for managing work or task as it moves through a process. This app has : 
+My Kanban App is an application to create visual system for managing work or task as it moves through a process. This app has : 
 * RESTful endpoint for asset's CRUD operation
 * JSON formatted response
 
