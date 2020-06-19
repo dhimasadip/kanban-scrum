@@ -49,6 +49,7 @@
             :submitCategory="this.submitCategory"
             :isSuccessDelete="this.isSuccessDelete"
             :taskId="this.taskId"
+            :unauthorized="false"
             @callGetData="fetchAllData"
         ></ModalConfirmation>   
 

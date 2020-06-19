@@ -77,6 +77,7 @@
                     this.$emit('loggedIn', response.data.user)
                 })
                 .catch(err => {
+                    console.log(err)
                     this.errorMessage = err.response.data.message
                 })
             },

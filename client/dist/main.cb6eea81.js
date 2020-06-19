@@ -10944,6 +10944,7 @@ var _default = {
 
         _this.$emit('loggedIn', response.data.user);
       }).catch(function (err) {
+        console.log(err);
         _this.errorMessage = err.response.data.message;
       });
     },
@@ -14057,11 +14058,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default = {
-  props: ['submitCategory', 'taskId', 'isSuccessDelete'],
+  props: ['submitCategory', 'taskId', 'isSuccessDelete', 'unauthorized'],
   name: 'ModalConfirmation',
   data: function data() {
     return {
+      unauthorized: false,
       isSuccessDelete: isSuccessDelete
     };
   },
@@ -14076,14 +14088,17 @@ var _default = {
           access_token: localStorage.access_token
         }
       }).then(function (response) {
+        _this.unauthorized = false;
         _this.isSuccessDelete = true;
 
         _this.$emit('callGetData');
       }).catch(function (err) {
-        _this.$emit('catchMessage', err.response.data.message);
+        console.log(_this.unauthorized);
+        _this.unauthorized = true;
       });
     },
     hideModal: function hideModal() {
+      this.unauthorized = false;
       this.$emit('callGetData');
     }
   }
@@ -14170,6 +14185,22 @@ exports.default = _default;
                   )
                 ])
               ])
+            : _vm.unauthorized && !_vm.isSuccessDelete
+            ? _c("div", [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-footer" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-secondary",
+                      attrs: { type: "button", "data-dismiss": "modal" },
+                      on: { click: _vm.hideModal }
+                    },
+                    [_vm._v("OK")]
+                  )
+                ])
+              ])
             : _c("div", [
                 _c("div", { staticClass: "modal-body" }, [
                   _c("h5", [
@@ -14211,7 +14242,16 @@ exports.default = _default;
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-body" }, [
+      _c("h5", [_vm._v("Unauthorized!")])
+    ])
+  }
+]
 render._withStripped = true
 
           return {
@@ -14264,6 +14304,7 @@ var _ModalConfirmation = _interopRequireDefault(require("./components/ModalConfi
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
 //
 //
 //
@@ -14461,7 +14502,8 @@ exports.default = _default;
         attrs: {
           submitCategory: this.submitCategory,
           isSuccessDelete: this.isSuccessDelete,
-          taskId: this.taskId
+          taskId: this.taskId,
+          unauthorized: false
         },
         on: { callGetData: _vm.fetchAllData }
       })
@@ -14540,7 +14582,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61136" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49707" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

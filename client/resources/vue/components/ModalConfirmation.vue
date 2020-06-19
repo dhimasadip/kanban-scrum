@@ -20,6 +20,14 @@
                     </div>
                 </div>
 
+                <div v-else-if="unauthorized && !isSuccessDelete">
+                    <div class="modal-body">
+                        <h5>Unauthorized!</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="hideModal">OK</button>
+                    </div>
+                </div>
 
                 <div v-else>
                     <div class="modal-body">
@@ -31,6 +39,8 @@
                     </div>
 
                 </div>
+
+                
                 
             </div>
         </div>
@@ -41,10 +51,11 @@
     import Axios from 'axios'
 
     export default {
-        props: ['submitCategory', 'taskId', 'isSuccessDelete'],
+        props: ['submitCategory', 'taskId', 'isSuccessDelete', 'unauthorized'],
         name: 'ModalConfirmation',
         data() {
             return {
+                unauthorized: false,
                 isSuccessDelete
             }
         },
@@ -58,14 +69,17 @@
                     }
                 })
                 .then(response => {
+                    this.unauthorized = false
                     this.isSuccessDelete = true
                     this.$emit('callGetData')
                 })
                 .catch(err => {
-                    this.$emit('catchMessage', err.response.data.message)
+                    console.log(this.unauthorized)
+                    this.unauthorized = true
                 })
             },
             hideModal() {
+                this.unauthorized = false
                 this.$emit('callGetData')
             }
         }   
