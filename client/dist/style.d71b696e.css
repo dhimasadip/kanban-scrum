@@ -1,0 +1,233 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+* {
+    font-family: 'Lato', sans-serif !important;
+    font-weight: 400 !important;
+    letter-spacing: 1px;
+}
+
+body {
+    background-image: linear-gradient(#0000007a, #0000007a), url('/astrology.68e14ec4.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+
+/* CUSTOM BACKGROUND */
+.bg-sky-blue {
+    background-color: #48dbfb !important;
+    border: 1px solid #48dbfb !important;
+    
+}
+
+.bg-purple {
+    background-color: #be2edd !important;
+    border: 1px solid #be2edd !important;
+}
+
+.bg-orange-jelly {
+    background-color: #ffb142 !important;
+    border: 1px solid #ffb142 !important;
+}
+
+.bg-wintergreen {
+    background-color: #3ae374 !important;
+    border: 1px solid #3ae374 !important;
+}
+
+
+/* CUSTOM BUTTON */
+.btn-outline-sky-blue {
+    background-color: transparent !important;
+    border: 1px solid #48dbfb !important;
+    transition: background-color 0.5s;
+    color: #06cdfabb;
+}
+
+.btn-sky-blue {
+    background-color: #48dbfb !important;
+    border: 1px solid #48dbfb;
+    transition: background-color 0.5s, color 0.3s;
+}
+
+.btn-sky-blue:hover,
+.btn-outline-sky-blue:hover {
+    background-color: #06cdfabb !important;
+    border: 1px solid #06cdfabb;
+    color: #fff !important;
+}
+
+.btn-outline-purple {
+    background-color: transparent !important;
+    border: 1px solid #be2edd !important;
+    transition: background-color 0.5s;
+    color: #921cab;
+}
+
+.btn-purple {
+    background-color: #be2edd !important;
+    border: 1px solid #be2edd;
+    transition: background-color 0.5s;
+}
+
+.btn-purple:hover,
+.btn-outline-purple:hover {
+    background-color: #921cab !important;
+    border: 1px solid #921cab;
+    color: #fff !important;
+}
+
+.btn-outline-orange-jelly {
+    background-color: transparent !important;
+    border: 1px solid #ffb142 !important;
+    transition: background-color 0.5s;
+    color: #fd9400ef;
+}
+
+.btn-orange-jelly {
+    background-color: #ffb142 !important;
+    border: 1px solid #ffb142;
+    transition: background-color 0.5s;
+}
+
+.btn-orange-jelly:hover,
+.btn-outline-orange-jelly:hover {
+    background-color: #fd9400ef !important;
+    border: 1px solid #fd9400ef;
+    color: #fff !important;
+}
+
+.btn-outline-wintergreen {
+    background-color: transparent !important;
+    border: 1px solid #3ae374 !important;
+    transition: background-color 0.5s;
+    color: #19af4c;
+}
+
+.btn-wintergreen {
+    background-color: #3ae374 !important;
+    border: 1px solid #3ae374;
+    transition: background-color 0.5s;
+}
+
+.btn-wintergreen:hover,
+.btn-outline-wintergreen:hover {
+    background-color: #19af4c !important;
+    border: 1px solid #19af4c;
+    color: #fff !important;
+}
+
+
+h5, h6,
+.btn {
+    font-weight: 700 !important;
+}
+
+.btn:hover {
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+
+
+
+
+
+
+
+/*  */
+
+.scrollbar {
+    overflow-y: scroll;
+    margin-left: 5px;
+}
+
+.scrollbar-sky-blue::-webkit-scrollbar {
+    width: 5px;
+}
+    
+.scrollbar-sky-blue::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #48dbfb; 
+}
+    
+.scrollbar-sky-blue {
+    scrollbar-color: #48dbfb #F5F5F5;
+}
+
+.scrollbar-purple::-webkit-scrollbar {
+    width: 5px;
+}
+    
+.scrollbar-purple::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #be2edd; 
+}
+    
+.scrollbar-purple {
+    scrollbar-color: #be2edd #F5F5F5;
+}
+
+.scrollbar-orange-jelly::-webkit-scrollbar {
+    width: 5px;
+}
+    
+.scrollbar-orange-jelly::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffb142; 
+}
+    
+.scrollbar-orange-jelly {
+    scrollbar-color: #ffb142 #F5F5F5;
+}
+
+.scrollbar-wintergreen::-webkit-scrollbar {
+    width: 5px;
+}
+    
+.scrollbar-wintergreen::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #3ae374; 
+}
+    
+.scrollbar-wintergreen {
+    scrollbar-color: #3ae374 #F5F5F5;
+}
+    
+
+
+/* 
+
+.loadingModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    
+  }
+​
+  .theModal {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    -webkit-transition: .5s;
+    transition: .5s;
+    width: 100%;
+    min-width: 600px;
+    max-width: 800px;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    padding: 1em;
+    color: black;
+    text-align: center;
+  } */
+
+
+/*# sourceMappingURL=/style.d71b696e.css.map */
