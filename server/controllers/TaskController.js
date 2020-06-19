@@ -1,11 +1,15 @@
-const { Task } = require('../models')
+const { Task, User } = require('../models')
 
 class TaskController {
     
     static list(req,res,next) {
-        Task.findAll()
+        
+        Task.findAll({
+            include: User
+        })
         .then(data => {
-            res.status(200).json({ data })
+            
+            res.status(200).json(data)
         })
         .catch(() => {
             next({ str_code: 'INTERNAL_SERVER_ERROR' })
@@ -18,12 +22,12 @@ class TaskController {
             category: req.body.category,
             description: req.body.description,
             due_date: new Date(req.body.due_date),
-            UserId: req.body.UserId
+            UserId: req.user.id
         }
 
         Task.create(newTask)
         .then(data => {
-            res.status(201).json({ data })
+            res.status(201).json( data )
         })
         .catch(err => {
             if(err.errors) {
@@ -56,10 +60,12 @@ class TaskController {
     static edit(req,res,next) {
         const { id } = req.params
 
-        Task.findByPk(id)
+        Task.findByPk(id, {
+            include: User
+        })
         .then(data => {
             if (data) {
-                res.status(200).json({ data })
+                res.status(200).json( data )
             } else {
                 next({ str_code: 'TASK_NOT_FOUND' })
             }
@@ -70,12 +76,9 @@ class TaskController {
     }
 
     static editHandler(req,res,next) {
+
         const updated_task = {
-            title: req.body.title,
-            description: req.body.description,
-            category: req.body.category,
-            due_date: new Date(req.body.due_date),
-            UserId: req.user.id
+            category: req.body.category
         }
 
         Task.update(updated_task, {
