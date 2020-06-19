@@ -6,8 +6,8 @@ const TaskController = require('../controllers/TaskController')
 router.use(authentication)
 router.get('/', TaskController.list)
 router.post('/', TaskController.add)
-router.delete('/:id', authorization, TaskController.delete)
 router.get('/:id', authorization, TaskController.edit)
 router.put('/:id', authorization, TaskController.editHandler)
+router.delete('/:id', authorization, TaskController.delete)
 
 module.exports = router

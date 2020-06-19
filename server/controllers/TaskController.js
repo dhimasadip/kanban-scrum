@@ -8,7 +8,12 @@ class TaskController {
             include: User
         })
         .then(data => {
-            
+            data.forEach(el => {
+                delete el.dataValues.User.dataValues.password
+                delete el.dataValues.User.dataValues.createdAt
+                delete el.dataValues.User.dataValues.updatedAt
+            })
+
             res.status(200).json(data)
         })
         .catch(() => {
@@ -41,30 +46,19 @@ class TaskController {
             }
         })
     }
-
-    static delete(req,res,next) {
-        const { id } = req.params
-
-        Task.destroy({
-            where: { id }
-        })
-        .then(() => {
-            res.status(200).json({ message: 'Succesfully delete task' })
-        })
-        .catch(() => {
-            next({ str_code: 'INTERNAL_SERVER_ERROR' })
-        })
-
-    }
-
+    
     static edit(req,res,next) {
         const { id } = req.params
-
+        
         Task.findByPk(id, {
             include: User
         })
         .then(data => {
             if (data) {
+                delete data.dataValues.User.dataValues.password
+                delete data.dataValues.User.dataValues.createdAt
+                delete data.dataValues.User.dataValues.updatedAt
+
                 res.status(200).json( data )
             } else {
                 next({ str_code: 'TASK_NOT_FOUND' })
@@ -74,20 +68,38 @@ class TaskController {
             next({ str_code: 'INTERNAL_SERVER_ERROR' })
         })
     }
-
+    
     static editHandler(req,res,next) {
-
+        
         const updated_task = {
             category: req.body.category
         }
-
+        
         Task.update(updated_task, {
             where: {
                 id: req.params.id
             }
         })
         .then(() => {
-            res.status(200).json({ message: 'Successfully update task' })
+            return Task.findByPk(req.params.id)
+        })
+        .then(data => {
+            res.status(200).json(data)
+        })
+        .catch(() => {
+            next({ str_code: 'INTERNAL_SERVER_ERROR' })
+        })
+        
+    }
+
+    static delete(req,res,next) {
+        const { id } = req.params
+
+        Task.destroy({
+            where: { id }
+        })
+        .then(() => {
+            res.status(200).json({ message: 'Succesfully delete task' })
         })
         .catch(() => {
             next({ str_code: 'INTERNAL_SERVER_ERROR' })

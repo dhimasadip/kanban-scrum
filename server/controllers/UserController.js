@@ -56,7 +56,7 @@ class UserController {
                     const access_token = jwt.sign(user, process.env.JWT_KEY)
                     user.access_token = access_token
 
-                    return res.status(200).json({ user })
+                    return res.status(200).json( user )
 
                 } else {
                     next({ str_code: 'INCORRECT_PASSWORD'})
