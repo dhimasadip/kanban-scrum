@@ -69,7 +69,7 @@
 
                 Axios({
                     method: 'get',
-                    url: `http://localhost:3000/tasks/${id}`,
+                    url: `https://kanban-dhimasadip.herokuapp.com/tasks/${id}`,
                     headers: {
                         access_token: localStorage.access_token
                     }

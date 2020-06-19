@@ -53,7 +53,7 @@
             register() {
                 Axios({
                     method: 'post',
-                    url: `http://localhost:3000/register`,
+                    url: `https://kanban-dhimasadip.herokuapp.com/register`,
                     data: {
                         name: this.name,
                         email: this.email,

@@ -61,7 +61,7 @@ new Vue({
         login(){
             axios({
                 method: "post",
-                url: `http://localhost:3000/login`,
+                url: `https://kanban-dhimasadip.herokuapp.com/login`,
                 data: {
                     email: this.email,
                     password: this.password
@@ -99,7 +99,7 @@ new Vue({
         getData() {
             axios({
                 method: "get",
-                url: `http://localhost:3000/tasks`,
+                url: `https://kanban-dhimasadip.herokuapp.com/tasks`,
                 headers: {
                     access_token: localStorage.access_token
                 }
@@ -125,7 +125,7 @@ new Vue({
         add() {
             axios({
                 method: 'post',
-                url: `http://localhost:3000/tasks`,
+                url: `https://kanban-dhimasadip.herokuapp.com/tasks`,
                 headers: {
                     access_token: localStorage.access_token
                 },
@@ -150,7 +150,7 @@ new Vue({
 
             axios({
                 method: 'get',
-                url: `http://localhost:3000/tasks/${id}`,
+                url: `https://kanban-dhimasadip.herokuapp.com/tasks/${id}`,
                 headers: {
                     access_token: localStorage.access_token
                 }
@@ -166,7 +166,7 @@ new Vue({
         update(id, category) {
             axios({
                 method: 'put',
-                url: `http://localhost:3000/tasks/${id}`,
+                url: `https://kanban-dhimasadip.herokuapp.com/tasks/${id}`,
                 headers: {
                     access_token: localStorage.access_token
                 },
@@ -185,7 +185,7 @@ new Vue({
         destroy(id) {
             axios({
                 method: 'delete',
-                url: `http://localhost:3000/tasks/${id}`,
+                url: `https://kanban-dhimasadip.herokuapp.com/tasks/${id}`,
                 headers: {
                     access_token: localStorage.access_token
                 }

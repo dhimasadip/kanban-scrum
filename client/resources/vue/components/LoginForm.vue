@@ -62,7 +62,7 @@
             login(){
                 Axios({
                     method: "post",
-                    url: `http://localhost:3000/login`,
+                    url: `https://kanban-dhimasadip.herokuapp.com/login`,
                     data: {
                         email: this.email,
                         password: this.password
@@ -89,7 +89,7 @@
                 const { id_token } = googleUser.wc
                 Axios({
                     method: "post",
-                    url: `http://localhost:3000/google-sign-in`,
+                    url: `https://kanban-dhimasadip.herokuapp.com/google-sign-in`,
                     data: {
                         id_token
                     }
